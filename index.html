@@ -403,7 +403,8 @@
       <div class="statement-tag">Project Overview</div>
       <h2>A budget wireless fencing tracker</h2>
       <p>
-        The purpose of this project was to make a device that can detect and track fencing hits while not erroneously tracking misses on the bellguard as hits, all while being wireless and within a cost much lower than similar products on the market. As well as being more cost effective, this system has some bonus features some added features (such as AWS updates and manual point update capabilities).
+       The objective of this project was to make a low cost wireless system for electric scoring for fencing. Traditional wired systems consist of a scorebox connected to two reels which are in turn connected to the fencers’ equipment. This system is wireless and relies on bluetooth connection between the scorebox and what we call weaponboxes carried by the fencers themselves to connect their equipment. The weaponboxes replace the heavy and expensive reels and cables in wired systems. When a weaponbox detects a hit it sends a bluetooth message to the scorebox. The scorebox sounds a buzzer when a hit is detected, and adjusts an OLED scoreboard which displays a 3 minute timer and the current score of both fencers. The scoreboard can be manipulated with a TV remote. The TV remote can also be used to upload the scoreboard information to an AWS server. The system currently only supports only one of the three weapons used in olympic fencing, which is epee. The current design could probably be adapted to foil easily but support was not implemented. Sabre fencing is notoriously difficult to support in a wireless system and would require experimentation. The goal of this project was to create a wireless fencing score system on a limited budget to be used by hobbyists. 
+
       </p>
       <div class="statement-divider"></div>
     </section>
@@ -564,18 +565,12 @@
       <article class="card">
         <div class="card-header">
           <div class="eyebrow">Featured Demo</div>
-          <h3>Hit detectiong demonstration</h3>
+          <h3>Score/Timer manual updating</h3>
         </div>
         <div class="card-body">
           <div class="media-box video">
             
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/BIh_-OHKlLc"
-              title="YouTube video player"
-              allowfullscreen>
-            </iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YlPCeuDy2pY?si=ls_yb-84VAxvw55x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             
           </div>
         </div>
@@ -589,92 +584,61 @@
         </div>
         <div class="card-body text-block">
           <p>
-            The video demonstrates how our device can determine hits, while not counting hits that are invalid such as if the tip hits the bellguard of the opponents weapons
+            This video shows the manual score and timer updating features of our system. On the left you can see the buttons that the referee can use to manually update the score and timer using the remote. Our system allows the user to set the bout timer, start and stop the timer, or completely restart the system. 
           </p>
           <p>
-            After the detection is made a bluetooth signal is sent to a central arbitration device (the CC3200) over bluetooth. This will only occur on a valid hit.  
+            This uses an Infrared remote and receiver system, and the remote has buttons for each of these functions. This allows the referee to have more control over the bout and be able to make adjustments as needed.
           </p>
 
           <div class="feature-list">
-            <div class="feature-item">
-              <strong>Highlight 1:</strong> Detects valid hits
-            </div>
-            <div class="feature-item">
-              <strong>Highlight 2:</strong> Won't register invalid hits
-            </div>
-            <div class="feature-item">
-              <strong>Highlight 3:</strong> Sends data regarding the hits over bluetooth to arbitration device. 
-            </div>
           </div>
         </div>
       </article>
 
-      <!-- LEFT: MORE TEXT -->
+
+      <!-- LEFT: TEXT -->
       <article class="card">
         <div class="card-header">
-          <div class="eyebrow">Technical Notes</div>
-          <h3>Architecture / explanation</h3>
+          <div class="eyebrow">Details</div>
+          <h3>What this part shows</h3>
         </div>
         <div class="card-body text-block">
           <p>
-            This section can describe your system architecture, workflow,
-            design tradeoffs, or testing process.
+            This videos shows how through the remote we can update scores and send them to AWS to be displayed on a website in real time. In the video you can see the score being updated on the AWS dashboard as the score is updated on the remote.
+            This could be useful for allowing spectators or tournament organizers to easily keep track of scores and timers without needing to be right next to the scoring box. It also allows for easier record keeping and data analysis after the bout is over.
           </p>
-          <p>
-            Since your sketch has text opposite the diagram, this block is meant
-            to fill that same role while looking cleaner and more intentional.
-          </p>
-
           <div class="feature-list">
-            <div class="feature-item">Add a short paragraph or point here.</div>
-            <div class="feature-item">Add another supporting explanation here.</div>
-            <div class="feature-item">Add measurements, specs, or observations here.</div>
+ 
           </div>
         </div>
       </article>
 
-      <!-- RIGHT: DIAGRAM -->
-      <article class="card">
-        <div class="card-header">
-          <div class="eyebrow">Visual</div>
-          <h3>Space for diagram</h3>
-        </div>
-        <div class="card-body">
-          <div class="media-box diagram">
-            <div class="media-content">
-              <strong>Diagram / Image Goes Here</strong>
-              <span>
-                Replace this with your diagram, schematic, chart, or architecture image.
-              </span>
-            </div>
-
-            <!-- PUT YOUR IMAGE HERE INSTEAD OF THE PLACEHOLDER ABOVE -->
-            <!--
-            <img src="images/diagram1.png" alt="Project diagram">
-            -->
-          </div>
-        </div>
-      </article>
-
-
-
-      <!-- LEFT: YOUTUBE -->
+      
+      <!-- RIGHT: YOUTUBE -->
       <article class="card">
         <div class="card-header">
           <div class="eyebrow">Featured Demo</div>
-          <h3>Hit detectiong demonstration</h3>
+          <h3>AWS Integration</h3>
         </div>
         <div class="card-body">
           <div class="media-box video">
             
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/BIh_-OHKlLc"
-              title="YouTube video player"
-              allowfullscreen>
-            </iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1KSaYgrCjik?si=Lxq3rTVgEtCj30Nq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             
+          </div>
+        </div>
+      </article>
+
+
+          <!-- LEFT: YOUTUBE -->
+      <article class="card">
+        <div class="card-header">
+          <div class="eyebrow">Featured Demo</div>
+          <h3>Weapon devices</h3>
+        </div>
+        <div class="card-body">
+          <div class="media-box video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/nxdnnoocZSo?si=L8d53e7Xs5Z7JtAT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            
           </div>
         </div>
       </article>
@@ -687,22 +651,15 @@
         </div>
         <div class="card-body text-block">
           <p>
-            The video demonstrates how our device can determine hits, while not counting hits that are invalid such as if the tip hits the bellguard of the opponents weapons
+              Here we take a look at the weapon devices themselves. They're built inside a 3D printed housing that is meant to be placed in the fencer's pocket.
+              It is connected via body cable to the weapon. It features a button to calibrate the basline capacitance (in the video I kept saying configure but I meant calibrate)  and a button to power the device.
+              There is an LED to indicate which part of calibration the device is in, (Calibrating touching a fencing glove vs air). 
           </p>
           <p>
-            After the detection is made a bluetooth signal is sent to a central arbitration device (the CC3200) over bluetooth. This will only occur on a valid hit.  
+            The banana cable adapter, both buttons and LED are soldered to an ESP32 within the housing which in turn is connected to the CC3200 arbitration device via bluetooth to send hit data. The weapon devices are currently powered by power banks but later iterations could potentially use smaller batteries to be more compact and easier to use.
           </p>
 
           <div class="feature-list">
-            <div class="feature-item">
-              <strong>Highlight 1:</strong> Detects valid hits
-            </div>
-            <div class="feature-item">
-              <strong>Highlight 2:</strong> Won't register invalid hits
-            </div>
-            <div class="feature-item">
-              <strong>Highlight 3:</strong> Sends data regarding the hits over bluetooth to arbitration device. 
-            </div>
           </div>
         </div>
       </article>
@@ -713,14 +670,13 @@
           <div class="eyebrow">Technical Notes</div>
           <h3>Architecture / explanation</h3>
         </div>
-        <div class="card-body text-block">
+        <div class="card-body text-block">  
           <p>
-            This section can describe your system architecture, workflow,
-            design tradeoffs, or testing process.
+           This diagram shows how the devices communicate with the CC3200. The CC3200 is connected to two HC-05 bluetooth modules, each one configured to pair with one of the weapon devices. 
+           When either receives a signal they send that data through UART to the CC3200.
           </p>
           <p>
-            Since your sketch has text opposite the diagram, this block is meant
-            to fill that same role while looking cleaner and more intentional.
+            The modules are configured beforehand with AT commands via UART, each must be given the MAC address of the device it is supposed to pair with. 
           </p>
 
           <div class="feature-list">
@@ -735,21 +691,10 @@
       <article class="card">
         <div class="card-header">
           <div class="eyebrow">Visual</div>
-          <h3>Space for diagram</h3>
+          <h3>Device+Arbitration relationship</h3>
         </div>
         <div class="card-body">
-          <div class="media-box diagram">
-            <div class="media-content">
-              <strong>Diagram / Image Goes Here</strong>
-              <span>
-                Replace this with your diagram, schematic, chart, or architecture image.
-              </span>
-            </div>
-
-            <!-- PUT YOUR IMAGE HERE INSTEAD OF THE PLACEHOLDER ABOVE -->
-            <!--
-            <img src="images/diagram1.png" alt="Project diagram">
-            -->
+            <img src="diagram3.png" alt="Project diagram">
           </div>
         </div>
       </article>
