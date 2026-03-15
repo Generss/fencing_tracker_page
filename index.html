@@ -433,7 +433,7 @@
         </div>
         <div class="card-body text-block">
           <p>
-            The video demonstrates how our device can determine hits, while not counting hits that are invalid such as if the tip hits the bellguard of the opponents weapons
+            The video demonstrates how our device can determine hits, while not counting hits that are invalid such as if the tip hits the bellguard of the opponents weapons. You can see when the tip hits the glove, a tone plays.
           </p>
           <p>
             After the detection is made a bluetooth signal is sent to a central arbitration device (the CC3200) over bluetooth. This will only occur on a valid hit.  
@@ -457,22 +457,20 @@
       <article class="card">
         <div class="card-header">
           <div class="eyebrow">Technical Notes</div>
-          <h3>Architecture / explanation</h3>
+          <h3>How we detect only valid hits</h3>
         </div>
         <div class="card-body text-block">
           <p>
-            This section can describe your system architecture, workflow,
-            design tradeoffs, or testing process.
+            Because we have no shared ground such as you would with a wired system we have to rely on the change in capacitance when a hit occurs to determine if a hit is valid or not. 
+            We have a baseline capacitance value that we measure when the device is turned on, and then we look for changes in that value that would indicate a hit.
+            We also have some additional logic to filter out hits that are likely to be invalid, such as if it happens too quickly after a previous hit.
           </p>
           <p>
-            Since your sketch has text opposite the diagram, this block is meant
-            to fill that same role while looking cleaner and more intentional.
+            The capacitance is sensed from the tip of the weapon, so if the tip hits the opponent it will cause a change in capacitance that we can detect. This method is also used in smart phones for touch sensing. 
+
           </p>
 
           <div class="feature-list">
-            <div class="feature-item">Add a short paragraph or point here.</div>
-            <div class="feature-item">Add another supporting explanation here.</div>
-            <div class="feature-item">Add measurements, specs, or observations here.</div>
           </div>
         </div>
       </article>
@@ -481,21 +479,15 @@
       <article class="card">
         <div class="card-header">
           <div class="eyebrow">Visual</div>
-          <h3>Space for diagram</h3>
+          <h3>Capacitive Sensing</h3>
         </div>
         <div class="card-body">
           <div class="media-box diagram">
-            <div class="media-content">
-              <strong>Diagram / Image Goes Here</strong>
-              <span>
-                Replace this with your diagram, schematic, chart, or architecture image.
-              </span>
-            </div>
+  
 
-            <!-- PUT YOUR IMAGE HERE INSTEAD OF THE PLACEHOLDER ABOVE -->
-            <!--
-            <img src="images/diagram1.png" alt="Project diagram">
-            -->
+         
+            <img src="diagram1.png" alt="Project diagram">
+            -
           </div>
         </div>
       </article>
@@ -505,19 +497,11 @@
       <article class="card">
         <div class="card-header">
           <div class="eyebrow">Featured Demo</div>
-          <h3>Hit detectiong demonstration</h3>
+          <h3>Tie Demonstration</h3>
         </div>
         <div class="card-body">
           <div class="media-box video">
-            
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/BIh_-OHKlLc"
-              title="YouTube video player"
-              allowfullscreen>
-            </iframe>
-            
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/5snKQql_Juc?si=Hs73JfeFR8jjOGFC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
       </article>
@@ -530,22 +514,14 @@
         </div>
         <div class="card-body text-block">
           <p>
-            The video demonstrates how our device can determine hits, while not counting hits that are invalid such as if the tip hits the bellguard of the opponents weapons
+            This video shows that ties can be detected as well. In fencing, a tie occurs when both fencers hit each other within a vert short time frame that's different per weapon. In this video
+            we show a tie for an epee, which is a very tight window of 40 milliseconds. 
           </p>
           <p>
-            After the detection is made a bluetooth signal is sent to a central arbitration device (the CC3200) over bluetooth. This will only occur on a valid hit.  
+            When both weapons hit within this window, the abritration device makes a higher tone and shows all LED lights and updates the score accordingly as can be seen in the video. 
           </p>
 
           <div class="feature-list">
-            <div class="feature-item">
-              <strong>Highlight 1:</strong> Detects valid hits
-            </div>
-            <div class="feature-item">
-              <strong>Highlight 2:</strong> Won't register invalid hits
-            </div>
-            <div class="feature-item">
-              <strong>Highlight 3:</strong> Sends data regarding the hits over bluetooth to arbitration device. 
-            </div>
           </div>
         </div>
       </article>
@@ -558,19 +534,14 @@
         </div>
         <div class="card-body text-block">
           <p>
-            This section can describe your system architecture, workflow,
-            design tradeoffs, or testing process.
+            The lockout flowchart diagram shows how the arbitration device determines which hit to register when both fencers hit within the tie window.
+            When the CC3200 receives a hit, it starts a timer for the tie window. If another hit is received from the other fencer within that window, it registers a tie. If no other hit is received, it registers a normal hit for the first fencer.
           </p>
           <p>
-            Since your sketch has text opposite the diagram, this block is meant
-            to fill that same role while looking cleaner and more intentional.
+            Bluetooth can make this process difficult as there can be some variability in the timing of when the hits are received. Things like signal strength and interference can affect timing so we try to make the conditions each bluetooth device is in as similar as possible to try to minimize this variability.
           </p>
 
-          <div class="feature-list">
-            <div class="feature-item">Add a short paragraph or point here.</div>
-            <div class="feature-item">Add another supporting explanation here.</div>
-            <div class="feature-item">Add measurements, specs, or observations here.</div>
-          </div>
+
         </div>
       </article>
 
@@ -578,21 +549,11 @@
       <article class="card">
         <div class="card-header">
           <div class="eyebrow">Visual</div>
-          <h3>Space for diagram</h3>
+          <h3>Lockout Flowchart</h3>
         </div>
         <div class="card-body">
           <div class="media-box diagram">
-            <div class="media-content">
-              <strong>Diagram / Image Goes Here</strong>
-              <span>
-                Replace this with your diagram, schematic, chart, or architecture image.
-              </span>
-            </div>
-
-            <!-- PUT YOUR IMAGE HERE INSTEAD OF THE PLACEHOLDER ABOVE -->
-            <!--
-            <img src="images/diagram1.png" alt="Project diagram">
-            -->
+            <img src="diagram2.png" alt="Lockout Flowchart">
           </div>
         </div>
       </article>
